@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="8" time="99.165" timestamp="2025-09-18T11:24:33.756326-04:00" hostname="User"><testcase classname="tests.test_login.TestLogin" name="test_login_with_valid_credentials" time="10.941" /><testcase classname="tests.test_login.TestLogin" name="test_invalid_email_valid_password" time="12.448" /><testcase classname="tests.test_login.TestLogin" name="test_valid_email_invalid_password" time="13.122" /><testcase classname="tests.test_login.TestLogin" name="test_without_entering_values" time="12.300" /><testcase classname="tests.test_register.TestRegister" name="test_register_with_mandatory_field" time="9.740" /><testcase classname="tests.test_register.TestRegister" name="test_register_all_field" time="12.544"><failure message="NameError: name 'generate_time_stamp' is not defined">self = &lt;tests.test_register.TestRegister object at 0x000001C43FD96850&gt;
+
+    def test_register_all_field(self):
+        self.driver.find_element(By.XPATH, "//span[text()='My Account']").click()
+        self.driver.find_element(By.LINK_TEXT, "Register").click()
+        register_account = "Register Account"
+        assert self.driver.find_element(By.XPATH, "//div[@id='content']/h1").text.__contains__(register_account)
+        self.driver.find_element(By.ID, "input-firstname").send_keys("Kavana145")
+        self.driver.find_element(By.ID, "input-lastname").send_keys("premaer")
+&gt;       self.driver.find_element(By.ID, "input-email").send_keys(generate_time_stamp())
+                                                                 ^^^^^^^^^^^^^^^^^^^
+E       NameError: name 'generate_time_stamp' is not defined
+
+tests\test_register.py:34: NameError</failure></testcase><testcase classname="tests.test_register.TestRegister" name="test_register_with_same_emialid" time="13.929" /><testcase classname="tests.test_register.TestRegister" name="test_without_entering_anyfield" time="13.902" /></testsuite></testsuites>
